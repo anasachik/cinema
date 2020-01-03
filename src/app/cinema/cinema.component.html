@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-md-3 padding-ville ">
+        <div class="card text-white bg-dark mb-3">
+            <div class="card-header text-center">List Of City</div>
+            <div class="card-body">
+                <ul class="list-group rounded-bottom" *ngIf="villes">
+                    <li *ngFor="let v of villes._embedded.villes" 
+                    class="text-center list-group-item list-group-item-action list-group-item-light "
+                    [ngClass]="{'active-iteam': v == currentVille}"
+                    (click)="onGetCinema(v)">
+                        {{v.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 padding-cinema ">
+        <!-- <div class="card">
+            <div class="red-titel text-center border border-danger card-header list-group-item-dark">
+              List Of Cinema
+            </div>
+            <div class="card-body">
+              
+            </div>
+        </div> -->
+        
+        <div class="card text-white bg-dark mb-3">
+            <div class="card-header text-center">List Of Cinema</div>
+            <div class="card-body">
+                <ul class="nav nav-tabs nav-pills nav-justified" *ngIf="cinemas">
+                    <li class="nav-item"  *ngFor="let c of cinemas._embedded.cinemas">
+                      <a class="nav-link" [ngClass]="{'border': c == currentCinemas}" (click)="onGetSalles(c)" >{{c.name}}</a>
+                    </li>
+                </ul>
+                <div class="card  bg-light">
+                    <div class="col-md-12 padding-salle" *ngIf="salles">
+                        <div class="row justify-content-around">
+                            <div class="card bg-dark col-md-5 mb-3" *ngFor="let s of salles._embedded.salles">
+                                <div class="card-header">{{s.name}}</div>
+                                <div class="card-body">
+                                    <!-- <button type="button" class="btn btn-outline-light">Light</button> -->
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
